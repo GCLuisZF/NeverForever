@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
+using Cinemachine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public float speed = 5f;
     private Rigidbody2D rbd;
@@ -12,23 +14,31 @@ public class PlayerController : MonoBehaviour
     private int health;
     private int energy;
 
-    // Start is called before the first frame update
+    public override void OnStartLocalPlayer()
+    {
+        Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;
+    }
     void Start()
     {
-        rbd = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        canMove = true;
-        canAttack = true;
-        health = 100;
-        energy = 100;
+        if (isLocalPlayer)
+        {
+            rbd = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
+            canMove = true;
+            canAttack = true;
+            health = 100;
+            energy = 100;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Movement();
-        SwitchAnim();
-        Attack();
+        if (isLocalPlayer)
+        {
+            Movement();
+            SwitchAnim();
+            Attack();
+        }
     }
 
     void Movement()//基础移动
@@ -57,20 +67,20 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("attack") & canAttack)
         {
+            GetComponent<NetworkAnimator>().SetTrigger("Attack");
             canMove = false;
             canAttack = false;
-            anim.SetTrigger("Attack");
             rbd.velocity = new Vector2(0, 0);
-            Invoke("reset", 1);
+            Invoke("reset", 0.7f);
         }
 
         if (Input.GetButtonDown("hardAttack") & canAttack)
         {
+            GetComponent<NetworkAnimator>().SetTrigger("HardAttack");
             canMove = false;
             canAttack = false;
-            anim.SetTrigger("HardAttack");
             rbd.velocity = new Vector2(0, 0);
-            Invoke("reset", 1);
+            Invoke("reset", 0.8f);
         }
 
     }
