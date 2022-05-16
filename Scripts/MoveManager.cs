@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 using Cinemachine;
 
-public class PlayerController : NetworkBehaviour
+public class MoveManager : NetworkBehaviour
 {
     public float speed = 5f;
     private Rigidbody2D rbd;
@@ -18,6 +18,7 @@ public class PlayerController : NetworkBehaviour
     {
         Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;
     }
+
     void Start()
     {
         if (isLocalPlayer)
@@ -26,8 +27,8 @@ public class PlayerController : NetworkBehaviour
             anim = GetComponent<Animator>();
             canMove = true;
             canAttack = true;
-            health = 100;
-            energy = 100;
+            health = 3;
+            energy = 10;
         }
     }
 
@@ -85,18 +86,9 @@ public class PlayerController : NetworkBehaviour
 
     }
 
-    void reset()//攻击后摇取消回调函数
+    private void reset()//攻击后摇取消回调函数
     {
         canMove = true;
         canAttack = true;
-    }
-
-    public void damage(int n)//伤害接口
-    {
-        health -= n;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

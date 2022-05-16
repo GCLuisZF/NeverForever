@@ -5,30 +5,30 @@ namespace Mirror.Examples.Tanks
 {
     public class Tank : NetworkBehaviour
     {
-        [Header("Components")]
-        public NavMeshAgent agent;
-        public Animator animator;
-        public TextMesh healthBar;
-        public Transform turret;
+        [Header("Components")]  //组件
+        public NavMeshAgent agent; //导航网格
+        public Animator animator;  //动画器
+        public TextMesh healthBar; //血条
+        public Transform turret;   //炮塔的位置  
 
-        [Header("Movement")]
-        public float rotationSpeed = 100;
+        [Header("Movement")]    //移动
+        public float rotationSpeed = 100;  //转动速度
 
-        [Header("Firing")]
-        public KeyCode shootKey = KeyCode.Space;
-        public GameObject projectilePrefab;
-        public Transform projectileMount;
+        [Header("Firing")]     //开火
+        public KeyCode shootKey = KeyCode.Space;  //开火键
+        public GameObject projectilePrefab;       //弹药预制体
+        public Transform projectileMount;         //发射架的位置
 
-        [Header("Stats")]
-        [SyncVar] public int health = 4;
+        [Header("Stats")]                         //状态
+        [SyncVar] public int health = 4;          //血量
 
         void Update()
         {
-            // always update health bar.
+            // 不断更新血条
             // (SyncVar hook would only update on clients, not on server)
             healthBar.text = new string('-', health);
 
-            // movement for local player
+            // 本地tank的移动
             if (isLocalPlayer)
             {
                 // rotate
