@@ -116,4 +116,14 @@ public class PlayerController : NetworkBehaviour
         return n;
     }
 
+     void OnTrigerEnter2D(Collider2D other)
+    {
+        PlayerController pc = other.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            Debug.Log("123");
+        }
+
+    }
+
 }
