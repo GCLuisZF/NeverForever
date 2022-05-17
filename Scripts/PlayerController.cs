@@ -34,12 +34,9 @@ public class PlayerController : NetworkBehaviour
 
     void Update()
     {
-        if (isLocalPlayer)
-        {
             Movement();
             SwitchAnim();
             Attack();
-            
             float MoveX = Input.GetAxisRaw("Horizontal");
             float MoveY = Input.GetAxisRaw("Vertical");
 
