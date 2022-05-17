@@ -7,12 +7,13 @@ using Cinemachine;
 public class PlayerController : NetworkBehaviour
 {
     public float speed = 10f;
-    private Rigidbody2D rbd;
+    private Rigidbody2D rbdyyy;
     private Animator anim;
     private bool canMove;
     private bool canAttack;
     private int health;
     private int energy;
+    private int number;
 
     public override void OnStartLocalPlayer()
     {
@@ -99,4 +100,14 @@ public class PlayerController : NetworkBehaviour
             Destroy(gameObject);
         }
     }
+
+    int attack()//击杀敌人数量
+    {
+        int n=0;
+        canMove = true;
+        canAttack = true;
+        n++;
+        return n;
+    }
+
 }
