@@ -71,7 +71,7 @@ public class PlayerController : NetworkBehaviour
             canMove = false;
             canAttack = false;
             rbd.velocity = new Vector2(0, 0);
-            Invoke("reset", 0.7f);
+            Invoke("reset", 0.9f);
         }
 
         if (Input.GetButtonDown("hardAttack") & canAttack)
@@ -79,8 +79,8 @@ public class PlayerController : NetworkBehaviour
             GetComponent<NetworkAnimator>().SetTrigger("HardAttack");
             canMove = false;
             canAttack = false;
-            rbd.velocity = new Vector2(0, 0);
-            Invoke("reset", 0.8f);
+            rbd.velocity = new Vector2(1, 0);
+            Invoke("reset", 1.0f);
         }
 
     }
@@ -93,8 +93,8 @@ public class PlayerController : NetworkBehaviour
 
     public void damage(int n)//伤害接口
     {
-        health -= n;
-        if (health <= 0)
+        health -= n-1;
+        if (health <= )
         {
             Destroy(gameObject);
         }
