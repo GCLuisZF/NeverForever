@@ -39,7 +39,16 @@ public class PlayerController : NetworkBehaviour
             Movement();
             SwitchAnim();
             Attack();
-        }
+            
+            float MoveX = Input.GetAxisRaw("Horizontal");
+            float MoveY = Input.GetAxisRaw("Vertical");
+
+            Vector2 position = transform.position;
+            position.x += moveX * speed * Time.deltaTime;
+            position.y += moveY * speed * Time.deltaTime;
+            transform.position = position;
+
+  
     }
 
     void Movement()//基础移动
