@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY first html</title>
+</head>
+<body>
+    <h2><a href="#表单"> 表单</a><br /> </h2>
+    <h2><a href="#css"> css</a><br /> </h2>
+    <h2>you must be a sb</h2>
+    <h3>you must be a sb</h3>
+    <h4>you must be a sb</h4>
+    <h5>you must be a sb</h5>
+
+    <p>
+        <h1 id="段落"> 分段</h1>
+        全部素材、源码、ppt、素材、讲义都在置顶留言,去下载吧~~
+        也可以直接： https://gitee.com/xiaoqiang001/html_css_material.git 下载哈！
+    </p>
+    
+
+    <p> 
+          1. web端布局：先讲解HTML5常用标签，接着讲解CSS3常见样式增加的H5C3新特性，新语法，最后讲解PC端品优购项目<br />。以及CSS3动画 2d 3d效果 
+    </p>   
+
+    <div>you</div>
+    <span>fs dgfd fdgs</span>
+
+    <alt>"my photo"</alt>
+    <h3>title 提示鼠标放到图像</h3>
+    <img src="../images/landscape.jpg" alt="my p" title="your are smart!!!" />
+    <h4>width 设定宽度 <br /> height 设定高度</h4>
+    <img src="../images/landscape.jpg" alt="my p" title="your are smart!!!" width="1000" border="5" />
+
+
+    <h2 id> 链接的语法格式</h2> 
+
+    target="目标窗口的弹出方式"
+    
+    <2>外部链接</2>
+    <a href="#段落"> 分段</a><br /> 
+
+    <div>
+        <a href="http://github.com" target="_setf"> 
+            github
+        </a>
+    </div>
+    
+
+    <div>
+        <a href="http://github.com" target="_blank"> 
+            github
+        </a>
+    </div>
+    </p>
+
+    <p>
+        <2>
+            内部链接(不需要加http)
+        </2>
+    </p>
+
+    <p>
+        <br />
+        <a href="#" target="_blank">  github_copy </a>
+
+    </p>
+
+
+    <p>
+        <div>
+            <a href="Voron.zip" > 
+                <br />对战小游戏
+            </a>
+        </div>
+    </p>
+
+    <p>
+        <div>
+            <a href="http://github.com" ><img src="../images/landscape.jpg" alt="my p" title="your are smart!!!" width="1000" />
+                 <br /> 点击图片下载
+            </a>
+        </div>
+    </p>
+
+    <h1>表格标签</h1>
+
+    <table align="center">
+        <!-- 表格的行 -->
+        <tr> <td>姓名</td> <td>性别</td></tr>
+        <tr> <td>小芳</td> <td>女</td></tr>
+        <tr> <td>小明</td> <td>男</td></tr>
+
+        <tr> <th>姓名</th> <th>性别</th></tr>
+        <tr> <th>小芳</th> <th>女</th></tr>
+        <tr> <th>小芳</th> <th>男</th></tr>
+    </table>
+
+    <table border="2" >
+        <!-- 表格的行 -->
+        <tr> <td>姓名</td> <td>性别</td></tr>
+        <tr> <td>小芳</td> <td>女</td></tr>
+        <tr> <td>小明</td> <td>男</td></tr>
+
+        <tr> <th>姓名</th> <th>性别</th></tr>
+        <tr> <th>小芳</th> <th>女</th></tr>
+        <tr> <th>小芳</th> <th>男</th></tr>
+    </table>
+
+    <table border="2" cellpadding="20" >
+        <!-- 表格的行 -->
+        <tr> <td>姓名</td> <td>性别</td></tr>
+        <tr> <td>小芳</td> <td>女</td></tr>
+        <tr> <td>小明</td> <td>男</td></tr>
+
+        <tr> <th>姓名</th> <th>性别</th></tr>
+        <tr> <th>小芳</th> <th>女</th></tr>
+        <tr> <th>小芳</th> <th>男</th></tr>
+    </table>
+
+    <table border="2" cellpadding="20" cellspacing="0" width="600" height="600">
+        <!-- 表格的行 -->
+        <tr> <td>姓名</td> <td>性别</td></tr>
+        <tr> <td>小芳</td> <td>女</td></tr>
+        <tr> <td>小明</td> <td>男</td></tr>
+
+
+        <tr> <th>小芳</th> <th>女</th></tr>
+        <tr> <th>小芳</th> <th>男</th></tr>
+    </table>
+    <h1 id="表单">表单：交互读取信息</h1>
+    <h2><span>表单域 表单控件（表单元素） 提示信息</span></h2>
+    <!-- 1表单域 将表单元素的数据传入后台 -->
+    <!-- 2表单元素  value给后台-->
+    <form action="#" method="get" name="name_one">
+        <lable for="na"> 用户名:</lable><input type="text" id="na" maxlength="10" > <br />
+        密码：<input type="password"> <br />
+        <!-- input 收集用户信息 -->
+   
+    <!-- radio单选框，name相同才能实现多选一 -->
+        <lable for="you"> 18</lable>
+        <input type="radio"  id="you" name="age" value="18" checked="18"> 128<input type="radio" name="age" >
+        
+        189<input type="radio" name="age" > 
+    
+    <!-- checkbox 复选框 -->
+        <br />
+        <input type="checkbox" name="hobby" >you <input type="checkbox" name="hobby" >me
+        <input type="checkbox" name="hobby" >and
+        <br />
+        <input type="submit" value="免费注册">
+        <input type="reset" value="清除">
+
+        <div><input type="button" value="获取短信验证码"></div>
+        <!-- 文件域 -->
+        <input type="file">
+        上传头像
+     </form>
+
+     <h1 id="css" class="blue">css</h1>
+
+     <style>
+         /*选择器{样式}
+         对象 {改什么样式}*/
+         p {
+             color:brown;
+             /* 修改文字 */
+             font-size: 29px;
+         }
+         
+         .blue {
+         color: blue;
+     }
+
+     </style>
+     <p>你真是猪</p>
+     
+     <br />
+     <p>基础选择器</p>
+
+     <h2>标签选择器</h2>
+     <h2>类选择器</h2>
+     
+   
+    
+</body>
+</html>
