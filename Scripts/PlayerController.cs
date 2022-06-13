@@ -21,6 +21,38 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     public int directionFlag;
 
     // Start is called before the first frame update
+
+    // private void Awake()
+    // {
+
+    //     if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+    //     {
+    //         GameManager.Instance.isHomeowner = true; //确定是否房主
+    //         Debug.Log("我是左");
+    //         directionFlag = 0;
+    //     }
+    //     else if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+    //     {
+    //         if (GameManager.Instance.isHomeowner == true)
+    //         {
+    //             directionFlag = 1;
+    //         }
+    //         else
+    //         {
+    //             if (photonView.IsMine)
+    //             {
+    //                 directionFlag = 1;
+    //             }
+    //             else
+    //             {
+    //                 directionFlag = 0;
+    //             }
+    //         }
+
+    //     }
+    // }
+
+    //重写优化一下；
     private void Awake()
     {
 
@@ -31,10 +63,25 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            Debug.Log("我是右");
-            directionFlag = 1;
-        }
+            if (GameManager.Instance.isHomeowner == true)
+            {
+                directionFlag = 1;
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                if (photonView.IsMine)
+                {
+                    directionFlag = 1;
+                    transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    directionFlag = 0;
+                }
+            }
 
+        }
     }
 
     void Start()

@@ -15,19 +15,33 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public static GameManager Instance;
     public GameObject playerPrefab;
+    public bool isHomeowner = false;
     void Start()
     {
         Instance = this;
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            GameManager.Instance.isHomeowner = true; //确定是否房主
+        }
+
         if (playerPrefab == null)
         {
             Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
         }
         else
         {
-            Debug.LogFormat("We are Instantiating LocalPlayer from {0}", Application.loadedLevelName);
-            // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(3f, 3f, 0f), Quaternion.identity, 0);
+            if (isHomeowner)
+            {
+                PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(5f, 3f, 0f), Quaternion.identity, 0);
+            }
+            else
+            {
+                PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(15f, 3f, 0f), Quaternion.identity, 0);
+            }
         }
+
+
     }
 
     #region Photon Callbacks
